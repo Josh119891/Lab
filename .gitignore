@@ -64,3 +64,5 @@ typings/
 .gitnore
 
 /private
+
+.vscode
