@@ -18,5 +18,6 @@ function resolveAfterSeconds(x) {
   1.
   await只是返回一个proise，但若想用await返回具体数值
   promise里面要写resolve
-  2.
+  2.https://www.jianshu.com/p/f0583f17e2ca
+  3.https://www.cnblogs.com/karthuslorin/p/8577224.html
 `
