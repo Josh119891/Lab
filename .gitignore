@@ -66,3 +66,4 @@ typings/
 /private
 
 .vscode
+.Ds_Store
