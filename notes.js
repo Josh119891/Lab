@@ -31,4 +31,10 @@ function resolveAfterSeconds(x) {
       https://element.eleme.cn/#/zh-CN/component/layout
   6.Babel
       http://www.ruanyifeng.com/blog/2016/01/babel.html
+  7.Vuex
+      https://www.jianshu.com/p/a804606ad8e9
+  8.Vue admin template
+      https://segmentfault.com/u/panjiachen
+  9.B站视频
+     https://www.bilibili.com/video/av74057051?p=13
 `

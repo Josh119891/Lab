@@ -68,4 +68,6 @@ module.exports = {
     
     $emit 子组件向父组件通信
     vm.$emit( event, arg )
+
+
 `
