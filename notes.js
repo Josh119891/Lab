@@ -7,12 +7,20 @@ function resolveAfterSeconds(x) {
   }
 }
   
-  async function f1() {
-    var x = await resolveAfterSeconds(10);
-    console.log(x); // 10
-  }
+async function f1() {
+  var x = await resolveAfterSeconds(10);
+  console.log(x); // 10
+}
   
-  f1();
+f1();
+function fetchDemo(){
+  fetch('url')
+  .then(res=>{
+    return res.json();
+  }).then(todos=>{
+    this.todos=tods;
+  })
+}
 `
   oct-31
   1.async/await
@@ -32,3 +40,12 @@ function resolveAfterSeconds(x) {
   6.Babel
       http://www.ruanyifeng.com/blog/2016/01/babel.html
 `
+
+
+  
+//正常在文件里引用注册，就是局部逐渐
+  • Import Users from './components/Users'
+  • component:{ Users}
+
+	- 
+<template> <h3>{{sbqmsg}}</h3> </template> //使用来自父组件的数据
