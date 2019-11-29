@@ -1,7 +1,8 @@
-`# Vue_Express[3]笔记`
+# proxy
 
+## vue.config.js
 
-`In vue.config.js`
+```javascript
 const path=require('path');
 module.exports = {
     outputDir: path.resolve(__dirname,'../server/public'), //build the src on public folder
@@ -12,9 +13,12 @@ module.exports = {
             }
         }
     }
-    
 }
-`In server/index.js`
+```
+
+### server/index.js
+
+```javascript
 //Handle production
 if(process.env.NODE_ENV === 'production'){
     //static folder
@@ -24,4 +28,4 @@ if(process.env.NODE_ENV === 'production'){
     app.get(/.*/,(req,res)=>res.sendFile(__dirname+'/public/index.html'));
 }
 
-//
+```

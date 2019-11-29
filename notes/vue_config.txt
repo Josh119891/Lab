@@ -1,0 +1,25 @@
+# vue
+
+v-on:click => @click
+v-bind:data => :data
+
+## 注入id到子组件
+router
+    { path: 'user/edit/:id',component:UserEdit, props: ture}
+子组件 //声明id
+    props:{
+        id:{}
+    }
+
+## Element UI
+
+### 消息提示
+    this.$message({
+        type:"success",
+        message:"更改成功"
+    })
+
+### MessageBox
+    this.$confirm(...)
+
+

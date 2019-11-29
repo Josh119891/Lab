@@ -1,15 +1,14 @@
-`
-Webpack
-https://webpack.js.org/guides/getting-started/
-webpack
+# Webpack
+
+[webpack](https://webpack.js.org/guides/getting-started/)
     static module bundler
     builds a dependency graph - mapping all modules we need
                               - generate bundler files
     Plugins
     Mode
     Browser Compatibility
-    
-`
+
+```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const webpack = require('webpack'); //to access built-in plugins
@@ -34,4 +33,4 @@ module.exports = {
     ],
     mode: 'production'
 };
-
+```
