@@ -1,0 +1,10 @@
+# permission
+
+//从session的userInfo中获取数据
+
+  async islogin() {
+    // 判断是否登录
+    const user = await this.session('userInfo');
+    const res = think.isEmpty(user) ? false : user.uid;
+    return res;
+  }

@@ -22,4 +22,7 @@ router
 ### MessageBox
     this.$confirm(...)
 
+### 一开始不存在component，后面声明出来
+    this.$set(this.model,"icon",res.url)
+
 
