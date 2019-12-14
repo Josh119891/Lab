@@ -1,5 +1,0 @@
-# 中间件
-
-app.use(url,middleware);
-middleware
-挂载到req.Model里 
