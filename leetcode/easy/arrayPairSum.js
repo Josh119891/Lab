@@ -4,7 +4,6 @@
  */
 var arrayPairSum = function(nums) {
     nums=nums.sort((a,b)=>a-b);
-    console.log(nums);
     var sum=0;
     for(var i=0;i<nums.length-1;i=i+2){
         sum+=nums[i];
