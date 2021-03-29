@@ -1,32 +1,27 @@
-/**
- * @param {string} s
- * @return {boolean}
+
+/*
+ * @Author: josh119891
+ * @Date: 2021-03-16 09:20:40
+ * @LastEditors: josh119891
+ * @LastEditTime: 2021-03-27 12:09:42
+ * @Description: 有效括号
  */
 
-//解法并不出众
-var isValid = function (s) {
-    while (s.length) {
-        var temp = s;
-        s = s.replace('()', '');
-        s = s.replace('[]', '');
-        s = s.replace('{}', '');
-        if (s == temp) return false
-    }
-    return true;
-};
-var isValid = function (s) {
-    var map = {
-        "(": ")",
-        "[": "]",
-        "{": "}"
-    }
-    var leftArr = []
-    for (var ch of s){
-        if (ch in map) leftArr.push(ch); //为左括号时，顺序保存
-        else { //为右括号时，与数组末位匹配
-            if(ch != map[leftArr.pop()]) return false;
-        }
-    }
-    return !leftArr.length //防止全部为左括号
-};
 
+// ? 原理: map只允许左边输入，若有右边输入，则查看栈内最后一个是否对应
+function isValid(s) {
+  if(s.length%2!==0) return false;
+  const temp=[]
+  const map ={ "(":")", "{":"}","[":"]"}
+  for(let char of s){
+    if(map[char]){
+      temp.push(char);
+    }else{
+      if(char!==map[temp.pop()]){
+        return false;
+      }
+    }
+    
+  }
+  return temp.length===0;
+};
