@@ -100,6 +100,10 @@ app.get('/',(req,res)=>{
 })
 ```
 
+
+
+
+
 ## nodejs 垃圾回收
 
 原理： 分辨已分配了的内存，对死去的内存重新分配，若其指向根对象，则始终保持活跃状态
@@ -167,3 +171,16 @@ V8将heap分为 **新生代** 和 **老生代**
 2. 老生代的空间远大于新生代，会造成空间损失
 
 
+
+
+
+## Event loop
+
+![loopOverview](/Users/josh/WorkStation/Lab/assets/loopOverview.png)
+
+- **timers**: 要被执行的临界点，回调将会在指定时间后尽早执行 setTimeout()`and`setInterval()
+- **pending callbacks**: executes I/O callbacks deferred to the next loop iteration.
+- **idle, prepare**: only used internally.
+- **poll**: retrieve new I/O events; execute I/O related callbacks (almost all with the exception of close callbacks, the ones scheduled by timers, and `setImmediate()`); node will block here when appropriate.
+- **check**: `setImmediate()` callbacks are invoked here.
+- **close callbacks**: some close callbacks, e.g. `socket.on('close', ...)`.
