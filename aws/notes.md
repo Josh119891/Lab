@@ -2,6 +2,8 @@
 
 handle credentials in secret way
 
+can easily rotate the secret for RDS and dynamodb regularly (system manager parameter store could not do that)
+
 
 
 ###  Aurora DB 
@@ -22,6 +24,49 @@ Users can configure an AWS Lambda function to pull in additional code and conten
 
 Amazon Cognito adds user sign-up, sign-in, and access control to web and mobile applications quickly and easily.
 
+##### Cognito sync 不同终端的用户数据同步
+
+##### user pool 是Cognito 中的用户库，支持Oauth和第三登陆, MFA 和用户管理
+
+
+
 #### Resource policy
 
 A resource policy can be used to grant API access to one AWS account to users in a different AWS account using Signature Version 4 (SigV4) protocols.
+
+
+
+#### AWS INSPECTOR
+
+a automated security assessment service
+
+
+
+
+
+
+
+###### 杂项
+
+通过 Cache-Control: max-age=0 header, 确保个别请求越过缓存，获取最新数据 
+
+On Premise server 不能放置在EC2上, 不能添加到 IAM group中
+
+Cloudwatch alarm 不会被log stream触发，会被metric触发
+
+CloudWatch event 会识别各种system events （例如EC2重启和state changes）
+
+In-place 不跟 lambda和 ECS合作
+
+Canary和Linear不是ECS的部署方式 how u shift ur traffic
+
+Blue/green 是 ecs的部署方式
+
+TODO:
+
+IAM ROLE VS USER VS GROUP
+
+what is cloudTrail, ECS, CODEDPLOY  
+
+https://www.youtube.com/watch?v=dURL_pPKGPw&ab_channel=DigitalCloudTraining
+
