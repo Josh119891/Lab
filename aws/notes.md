@@ -44,9 +44,19 @@ a automated security assessment service
 
 a web service that enables you to coordinate the components of distributed applications and mircoservices using visual workflow.
 
+#### X-Ray daemon Xray 守护进程
 
+默认监听UPD端口2000，并发送到X-RAY API上
 
+#####  使用条件
 
+1. 需要安装并执行Xray daemon
+
+2. 确保权限可以上传数据到X-ray
+
+#### AWS lambda
+
+默认Timeout 3秒, 如果lambda function 需要执行更久，就需要改时间
 
 ###### 杂项
 
@@ -66,9 +76,12 @@ Blue/green 是 ecs的部署方式
 
 .config后缀的文件都是在.ebextensions 文件夹里
 
+Cors header: Access-Control-Allow-Headers / Origin
+
 TODO:
 
 IAM ROLE VS USER VS GROUP
 
 what is cloudTrail, ECS, CODEDPLOY , SWF, BATCH, STEP FUNCTIONS
 
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.requests
