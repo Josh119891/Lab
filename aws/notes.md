@@ -40,7 +40,9 @@ A resource policy can be used to grant API access to one AWS account to users in
 
 a automated security assessment service
 
+##### AWS step functions
 
+a web service that enables you to coordinate the components of distributed applications and mircoservices using visual workflow.
 
 
 
@@ -62,11 +64,11 @@ Canary和Linear不是ECS的部署方式 how u shift ur traffic
 
 Blue/green 是 ecs的部署方式
 
+.config后缀的文件都是在.ebextensions 文件夹里
+
 TODO:
 
 IAM ROLE VS USER VS GROUP
 
-what is cloudTrail, ECS, CODEDPLOY  
-
-https://www.youtube.com/watch?v=dURL_pPKGPw&ab_channel=DigitalCloudTraining
+what is cloudTrail, ECS, CODEDPLOY , SWF, BATCH, STEP FUNCTIONS
 
