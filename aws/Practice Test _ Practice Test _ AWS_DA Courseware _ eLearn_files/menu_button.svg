@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60"
+   height="60"
+   viewBox="0 0 60 60"
+   id="svg3382"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="menu_button.svg">
+  <metadata
+     id="metadata3410">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3408" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview3406"
+     showgrid="false"
+     inkscape:zoom="14.133333"
+     inkscape:cx="19.563679"
+     inkscape:cy="30"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3386" />
+  <style
+     id="style3384">
+    .circle { fill: white }
+  </style>
+  <g
+     class="root"
+     id="g3386">
+    <circle
+       class="circle"
+       cy="22"
+       cx="22"
+       id="circle3388"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="31"
+       cx="22"
+       id="circle3390"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="40"
+       cx="22"
+       id="circle3392"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="22"
+       cx="30"
+       id="circle3394"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="31"
+       cx="30"
+       id="circle3396"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="40"
+       cx="30"
+       id="circle3398"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="22"
+       cx="38"
+       id="circle3400"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="31"
+       cx="38"
+       id="circle3402"
+       style="fill:#ffffff"
+       r="2.9000001" />
+    <circle
+       class="circle"
+       cy="40"
+       cx="38"
+       id="circle3404"
+       style="fill:#ffffff"
+       r="2.9000001" />
+  </g>
+</svg>
