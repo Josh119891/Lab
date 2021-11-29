@@ -140,6 +140,23 @@ optimizing performance - sequential date-based naming for your prefixes
 | `THROTTLED`                         | 由于 IAM 角色发出的请求的数目超出 AWS CodeDeploy 允许的数目，因此部署失败。尝试减少请求数。 |
 | `UNABLE_TO_SEND_ASG`                | 由于部署组未与其 Amazon EC2 Auto Scaling 组正确配置，因此部署失败。在 CodeDeploy 控制台中，从部署组中删除 Amazon EC2 Auto Scaling 组，然后重新添加此组 |
 
+## CodeCommit - Source Version Controller, like git, svn
+
+## CloudFormation
+
+Template:
+
+	1. define resource to create
+	1. code your infrastructure in JSON/YAML file
+
+Stack:
+
+1. Create from template
+2. create multiple stacks
+3. monitor stack updates
+
+
+
 ##### 杂项
 
 ![image-20211120130210822](/Users/josh/Library/Application Support/typora-user-images/image-20211120130210822.png)
