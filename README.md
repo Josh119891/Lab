@@ -1,9 +1,9 @@
 # 笔记
 
 ### 2020进展
--[x] AWS developer associate 证书
--[] React Router
--[] interview
+- [x] AWS developer associate 证书
+- [] React Router
+- [] interview
 
 
 ### 文档
