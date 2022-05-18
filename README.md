@@ -1,9 +1,9 @@
 # 笔记
 
-### 2020进展
+### 2022进展
 - [x] AWS developer associate 证书
-- [ ] React Router
-- [ ] interview
+- [x] React Router
+- [ ] Redux toolkit
 - [ ] AWS Solution Architecture 证书
 
 
