@@ -1,10 +1,10 @@
 # 笔记
 
 ### 2022进展
-- [x] AWS developer associate 证书
+- [x] AWS DVA 证书
 - [x] React Router
 - [x] Redux toolkit
-- [ ] AWS Solution Architecture 证书
+- [ ] AWS SAA 证书
 
 
 ### 文档
