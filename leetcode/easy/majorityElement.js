@@ -7,25 +7,19 @@
  */
 
 //取巧方式，当一个数出现次数>（n/2），无论偏大偏小，只要按顺序排列，中间都是它
-var majorityElement = function(nums) {
-        return nums.sort()[parseInt(nums.length/2)];// 因为3/2,结果为1.5，数组无法识别,要加parseInt
+var majorityElement = function (nums) {
+  return nums.sort()[parseInt(nums.length / 2)];// 因为3/2,结果为1.5，数组无法识别,要加parseInt
 };
 
 // 用map,key记数字，value记次数，设初识为1
-var majorityElement2 = function(nums) {
-    if (nums.length === 1) {
-        return nums[0];
+var majorityElement = function (nums) {
+  let limit = Math.floor(nums.length / 2);
+  let obj = {};
+  for (let num of nums) {
+    obj[num] = obj[num] + 1 || 1;
+    if (obj[num] > limit) {
+      return num
     }
-    const map = new Map();
-    for (let num of nums) {
-        if (!map.get(num)) {
-            map.set(num, 1);
-        } else {
-            map.set(num, map.get(num) + 1);//标记有多少次
-            if (map.get(num) > nums.length / 2) {
-                return num;
-            }
-        }
-    }
-
+  }
+  return -1;
 };
