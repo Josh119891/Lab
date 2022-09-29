@@ -26,3 +26,11 @@ function isPalindrome(head: ListNode | null): boolean {
   }
   return true;
 }
+
+function isPalindrome(s: string): boolean {
+  let txt = s.toLowerCase().replace(/[^a-z0-9]/gi, "");
+  for (let i = 0, j = txt.length - 1; i <= j; i++, j--) {
+    if (txt.charAt(i) !== txt.charAt(j)) return false;
+  }
+  return true;
+}
