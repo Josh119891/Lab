@@ -36,16 +36,24 @@ const WOOD_STROKES = {
 }
 
 
-//这里是姓氏,姓在这里单独添加，不用做名
+//这里是姓氏,姓在这里单独添加,不用做名
 const SURNAME = { "李": 7, };
 
 const strokesMap = { ...SURNAME, ...WATER_STROKES, ...WOOD_STROKES }
 
 
-function isLuckyGrids(grids) {
-  const nums = [1, 3, 5, 6, 8, 11, 13, 15, 16, 18, 21, 23, 24, 25, 31, 32, 33, 37, 39, 41];
-  return grids.every((i) => nums.includes(i));
+function isLuckyGrid(grid) {
+  let luckyNums = [1, 3, 5, 6, 7, 8, 11, 13, 15, 16, 18, 21, 23, 24, 25, 31, 32, 33, 35, 37, 39, 41, 45, 47, 48, 52, 57, 63];
+  let normalNums = [9, 10, 12, 17, 20, 22, 34, 36, 38, 40, 46];
+  let unluckyNums = [2, 4, 19, 14, 26, 27, 28, 29, 30, 42, 43, 44, 49, 50, 51, 53, 54, 55, 56, 58, 59, 60, 61, 62, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81];  // 凶
+  if (luckyNums.includes(grid)) {
+    return 1;
+  } else if (normalNums.includes(grid)) {
+    return 0;
+  }
+  return -1;
 }
+
 
 function isLuckyTalents(tian, ren, di) {
   function numToElement(n) {
@@ -64,32 +72,31 @@ function isLuckyTalents(tian, ren, di) {
   const sheng = { 木: '火', 火: '土', 土: '金', 金: '水', 水: '木' };
   const ke = { 木: '土', 火: '金', 土: '水', 金: '木', 水: '火' };
 
-  // 6. 分析天→人、人与地的生克平关系 :contentReference[oaicite:5]{index=5}
+  // 6. 分析天→人,人与地的生克平关系 :contentReference[oaicite:5]{index=5}
   const t2r = sheng[tianE] === renE ? '相生'
     : ke[tianE] === renE ? '相克'
       : '平';
   const r2d = sheng[renE] === diE ? '相生'
     : ke[renE] === diE ? '相克'
       : '平';
-
   // 7. 根据生克组合判定吉凶：  
   //    大吉：天→人&人→地均相生  
   //    吉：一生一平  
   //    平：两平  
   //    凶：出现任何相克 :contentReference[oaicite:6]{index=6}
+
   let luck;
   if (t2r === '相生' && r2d === '相生') luck = '大吉';
   else if ((t2r === '相生' && r2d === '平') || (t2r === '平' && r2d === '相生')) luck = '吉';
   else if (t2r === '平' && r2d === '平') luck = '平';
   else luck = '凶';
-
-  return luck;
+  return { tian, ren, di, tianE, renE, diE, t2r, r2d, luck }
 }
 
-function getFiveGrids(name) {
+function getFiveGrids(name = '') {
   if (name.length < 2 || name.length > 3) {
     console.log('⚠️ 名字应为2~3个字（含姓）。');
-    return;
+    throw new Error('name is required')
   }
 
   const nameChars = [...name];
@@ -106,7 +113,7 @@ function getFiveGrids(name) {
   const waige = (typeof tiange === 'number' && typeof dige === 'number' && typeof renge === 'number')
     ? tiange + dige - renge : '?';
   const zongge = totalStrokes;
-  return [tiange, renge, dige, waige, zongge];
+  return { tiange, renge, dige, waige, zongge };
 }
 
 //
@@ -116,10 +123,10 @@ const C = []; // 平
 // const D = []; // 凶
 
 function addName(name) {
-  const [tiange, renge, dige, waige, zongge] = getFiveGrids(name);
-  //要求五格全吉，如果外格允许凶，去掉waige即可
-  if (isLuckyGrids([tiange, renge, dige, waige, zongge])) {
-    const luck = isLuckyTalents(tiange, renge, dige)
+  const { tiange, renge, dige, waige, zongge } = getFiveGrids(name);
+  //要求五格全吉,如果外格允许凶,去掉waige即可
+  if ([tiange, renge, dige, waige, zongge].every((i) => isLuckyGrid(i) > 0)) {
+    const { luck } = isLuckyTalents(tiange, renge, dige)
     if (luck === "大吉") {
       A.push(name)
     } else if (luck === "吉") {
@@ -131,11 +138,30 @@ function addName(name) {
   return;
 }
 
+//确定好名字,用这个看细节
+function checkNameInfo(name) {
+
+
+  const { tiange, renge, dige, waige, zongge } = getFiveGrids(name);
+  const { tianE, renE, diE, t2r, r2d, luck } = isLuckyTalents(tiange, renge, dige);
+  console.log(`名字：${name}`)
+  console.log(`天格：${tiange} ${isLuckyGrid(tiange)}`);
+  console.log(`人格：${renge} ${isLuckyGrid(renge)}`);
+  console.log(`地格：${dige} ${isLuckyGrid(dige)}`);
+  console.log(`总格：${zongge} ${isLuckyGrid(zongge)}`);
+  console.log(`外格：${waige} ${isLuckyGrid(waige)}`);
+
+  console.log(`三才: ${tianE} - ${renE} - ${diE}`);
+  console.log(`天人: ${t2r}`);
+  console.log(`人地: ${r2d}`);
+  console.log(`结论: ${luck}`)
+}
+
 // 起名逻辑
 function getLuckyNames() {
   const surname = Object.keys(SURNAME)[0];
   //
-  // 这里考虑五行，要的逻辑自己加
+  // 这里考虑五行,要的逻辑自己加
   // 去重
   const waterChars = [...new Set(Object.keys(WATER_STROKES))];
   const woodChars = [...new Set(Object.keys(WOOD_STROKES))];
@@ -149,7 +175,7 @@ function getLuckyNames() {
       let nameB = surname + waterChars[i] + woodChar;
       addName(nameB)
     }
-    //考虑叠词，考虑两个水
+    //考虑叠词,考虑两个水
     for (let j = i; j < waterChars.length; j++) {
       let nameC = surname + waterChars[i] + waterChars[j];
       addName(nameC)
@@ -164,4 +190,3 @@ getLuckyNames()
 console.log(A);
 console.log(B);
 console.log(C);
-
