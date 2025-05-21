@@ -18,7 +18,6 @@ const WATER_STROKES = {
 
 const WOOD_STROKES = {
 
-
   "可": 5, "冉": 5, "竹": 6,
   "彤": 7, "杉": 7, "杏": 7,
   "兰": 8, "林": 8, "枚": 8, "枝": 8, "青": 8, "果": 8, "杰": 8,
@@ -34,12 +33,28 @@ const WOOD_STROKES = {
   "薇": 19, "蕾": 19,
   "樱": 21, "艺": 21,
 }
+const METAL_STROKES = {
+  "千": 3, "小": 3,
+  "心": 4, "双": 4,
+  "玉": 5,
+  "初": 7,
+  "星": 9, "思": 9, "秋": 9, "姝": 9,
+  "珍": 10, "珊": 10, "玲": 10, "书": 10, "倩": 10,
+  "悦": 11,
+  "顺": 12, "朝": 12,
 
+  "诗": 13, "铃": 13, "钰": 13, "宸": 13, "愉": 13, "歆": 13, "新": 13,
+  "铭": 14, "瑜": 14, "瑞": 14, "慈": 14, "韶": 14, "睿": 14, "嫦": 14,
+  "瑶": 15, "婵": 15,
+  "锦": 16, "谕": 16,
+  "馨": 20,
+  "钥": 25,
+}
 
 //这里是姓氏,姓在这里单独添加,不用做名
 const SURNAME = { "李": 7, };
 
-const strokesMap = { ...SURNAME, ...WATER_STROKES, ...WOOD_STROKES }
+const strokesMap = { ...SURNAME, ...WATER_STROKES, ...WOOD_STROKES, ...METAL_STROKES }
 
 
 function isLuckyGrid(grid) {
@@ -165,6 +180,8 @@ function getLuckyNames() {
   // 去重
   const waterChars = [...new Set(Object.keys(WATER_STROKES))];
   const woodChars = [...new Set(Object.keys(WOOD_STROKES))];
+  const metalChars = [...new Set(Object.keys(METAL_STROKES))];
+
 
   for (let i = 0; i < waterChars.length; i++) {
     for (let woodChar of woodChars) {
@@ -175,6 +192,16 @@ function getLuckyNames() {
       let nameB = surname + waterChars[i] + woodChar;
       addName(nameB)
     }
+
+    for (let metalChar of metalChars) {
+      //1金1水
+      let nameA = surname + metalChar + waterChars[i];
+      addName(nameA);
+      //1水1金
+      let nameB = surname + waterChars[i] + metalChar;
+      addName(nameB)
+    }
+
     //考虑叠词,考虑两个水
     for (let j = i; j < waterChars.length; j++) {
       let nameC = surname + waterChars[i] + waterChars[j];
