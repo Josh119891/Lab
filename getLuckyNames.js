@@ -140,7 +140,7 @@ const C = []; // 平
 function addName(name) {
   const { tiange, renge, dige, waige, zongge } = getFiveGrids(name);
   //要求五格全吉,如果外格允许凶,去掉waige即可
-  if ([tiange, renge, dige, waige, zongge].every((i) => isLuckyGrid(i) > 0)) {
+  if ([tiange, renge, dige, zongge, waige].every((i) => isLuckyGrid(i) >= 0)) {
     const { luck } = isLuckyTalents(tiange, renge, dige)
     if (luck === "大吉") {
       A.push(name)
@@ -193,14 +193,14 @@ function getLuckyNames() {
       addName(nameB)
     }
 
-    for (let metalChar of metalChars) {
-      //1金1水
-      let nameA = surname + metalChar + waterChars[i];
-      addName(nameA);
-      //1水1金
-      let nameB = surname + waterChars[i] + metalChar;
-      addName(nameB)
-    }
+    // for (let metalChar of metalChars) {
+    //   //1金1水
+    //   let nameA = surname + metalChar + waterChars[i];
+    //   addName(nameA);
+    //   //1水1金
+    //   let nameB = surname + waterChars[i] + metalChar;
+    //   addName(nameB)
+    // }
 
     //考虑叠词,考虑两个水
     for (let j = i; j < waterChars.length; j++) {
